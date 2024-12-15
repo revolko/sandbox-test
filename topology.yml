@@ -3,14 +3,14 @@ name: case-study
 hosts:
   - name: client
     base_box:
-      image: ubuntu-18.04
+      image: debian-10-x86_64
       mgmt_user: ubuntu
     flavor: csirtmu.tiny1x2
     hidden: True
 
   - name: server
     base_box:
-      image: ubuntu-18.04
+      image: debian-10-x86_64
       mgmt_user: ubuntu
     flavor: csirtmu.tiny1x2
 
@@ -20,6 +20,9 @@ routers:
       image: debian-10-x86_64
       mgmt_user: debian
     flavor: csirtmu.tiny1x2
+
+wan:
+    name: internet-connection
     cidr: 100.100.100.0/24
 
 networks:
@@ -38,7 +41,7 @@ net_mappings:
 router_mappings:
   - router: router
     network: network
-    ip: 10.10.80.69
+    ip: 10.10.80.1
 
 groups:
   - name: user-accessible
