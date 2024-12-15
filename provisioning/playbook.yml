@@ -1,0 +1,8 @@
+- hosts: clients, router
+  become: yes
+  become_user: root
+
+  tasks:
+          - name: Install Chrony
+            apt:
+                    name: chrony
